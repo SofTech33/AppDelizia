@@ -90,5 +90,10 @@ namespace AppDelizia
                 textBox2.ForeColor = Color.Gray;
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
