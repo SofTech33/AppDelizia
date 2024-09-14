@@ -48,6 +48,7 @@ namespace AppDelizia
             {
                 textBox2.Text = "Contraseña";
                 textBox2.ForeColor = Color.Gray;
+                textBox2.UseSystemPasswordChar = false;
             }
         }
 
@@ -78,6 +79,7 @@ namespace AppDelizia
             {
                 textBox2.Text = "";
                 textBox2.ForeColor = Color.Black;
+                textBox2.UseSystemPasswordChar = true;
             }
         }
 
@@ -88,6 +90,7 @@ namespace AppDelizia
             {
                 textBox2.Text = "Contraseña";
                 textBox2.ForeColor = Color.Gray;
+                textBox2.UseSystemPasswordChar = false;
             }
         }
 
