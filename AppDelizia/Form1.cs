@@ -185,7 +185,7 @@ namespace AppDelizia
 
         //Evento para el idioma
 
-        private bool idiomaIngles = false; // false para español, true para inglés;
+        private bool idiomaIngles = true; // true para español, false para inglés;
 
         private void CambiarIdioma()
         {
