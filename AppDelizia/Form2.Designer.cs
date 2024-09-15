@@ -40,11 +40,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(554, 75);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Bisque;
+            this.label1.Location = new System.Drawing.Point(535, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 31);
+            this.label1.Size = new System.Drawing.Size(230, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Administrador";
             // 
@@ -53,11 +54,11 @@
             this.button1.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(580, 124);
+            this.button1.Location = new System.Drawing.Point(559, 122);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 51);
+            this.button1.Size = new System.Drawing.Size(176, 51);
             this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
+            this.button1.Text = "Gestión";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // button2
@@ -65,11 +66,11 @@
             this.button2.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(580, 190);
+            this.button2.Location = new System.Drawing.Point(559, 188);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 51);
+            this.button2.Size = new System.Drawing.Size(176, 51);
             this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
+            this.button2.Text = "Pedidos";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
@@ -77,11 +78,11 @@
             this.button3.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(580, 258);
+            this.button3.Location = new System.Drawing.Point(559, 256);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(131, 51);
+            this.button3.Size = new System.Drawing.Size(176, 51);
             this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
+            this.button3.Text = "Seguimiento";
             this.button3.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
@@ -98,7 +99,7 @@
             this.btnSalir2.BackColor = System.Drawing.Color.Firebrick;
             this.btnSalir2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir2.Location = new System.Drawing.Point(580, 327);
+            this.btnSalir2.Location = new System.Drawing.Point(559, 325);
             this.btnSalir2.Name = "btnSalir2";
             this.btnSalir2.Size = new System.Drawing.Size(131, 51);
             this.btnSalir2.TabIndex = 5;

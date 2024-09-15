@@ -17,6 +17,7 @@ namespace AppDelizia
         {
             InitializeComponent();
             SetPlaceholders(); // Establece placeholder al cargar el formulario
+            CambiarIdioma(); // Inicializa el idioma por defecto (español en este caso)
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,19 +68,33 @@ namespace AppDelizia
         // Establece los placeholders para ambos TextBox al cargar el formulario
         private void SetPlaceholders()
         {
-            // Placeholder para textBox1
-            if (textBox1.Text == "")
+            if (idiomaIngles)
             {
-                textBox1.Text = "Usuario";
-                textBox1.ForeColor = Color.Gray;
+                if (string.IsNullOrEmpty(textBox1.Text)) // Placeholder para textBox1 en inglés
+                {
+                    textBox1.Text = "Username";
+                    textBox1.ForeColor = Color.Gray;
+                }
+                if (string.IsNullOrEmpty(textBox2.Text)) // Placeholder para textBox2 en inglés
+                {
+                    textBox2.Text = "Password";
+                    textBox2.ForeColor = Color.Gray;
+                    textBox2.UseSystemPasswordChar = false;  // No mostrar caracteres como contraseñas
+                }
             }
-
-            // Placeholder para textBox2
-            if (textBox2.Text == "")
+            else
             {
-                textBox2.Text = "Contraseña";
-                textBox2.ForeColor = Color.Gray;
-                textBox2.UseSystemPasswordChar = false;
+                if (string.IsNullOrEmpty(textBox1.Text)) // Placeholder para textBox1 en español
+                {
+                    textBox1.Text = "Usuario";
+                    textBox1.ForeColor = Color.Gray;
+                }
+                if (string.IsNullOrEmpty(textBox2.Text)) // Placeholder para textBox2 en español
+                {
+                    textBox2.Text = "Contraseña";
+                    textBox2.ForeColor = Color.Gray;
+                    textBox2.UseSystemPasswordChar = false;  // No mostrar caracteres como contraseñas
+                }
             }
         }
 
@@ -91,14 +106,24 @@ namespace AppDelizia
                 textBox1.Text = "";
                 textBox1.ForeColor = Color.Black;
             }
+            if (textBox1.Text == "Username")
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = Color.Black;
+            }
         }
 
         // Evento cuando el TextBox1 pierde el foco
         private void textBox1_Leave(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (textBox1.Text == "" & idiomaIngles == true )
             {
                 textBox1.Text = "Usuario";
+                textBox1.ForeColor = Color.Gray;
+            }
+            if (textBox1.Text == "" & idiomaIngles == false)
+            {
+                textBox1.Text = "Username";
                 textBox1.ForeColor = Color.Gray;
             }
         }
@@ -112,14 +137,27 @@ namespace AppDelizia
                 textBox2.ForeColor = Color.Black;
                 textBox2.UseSystemPasswordChar = true;
             }
+            if (textBox2.Text == "Password")
+            {
+                textBox2.Text = "";
+                textBox2.ForeColor = Color.Black;
+                textBox2.UseSystemPasswordChar = true;
+            }
+
         }
 
         // Evento cuando el TextBox2 pierde el foco
         private void textBox2_Leave(object sender, EventArgs e)
         {
-            if (textBox2.Text == "")
+            if (textBox2.Text == "" & idiomaIngles == true)
             {
                 textBox2.Text = "Contraseña";
+                textBox2.ForeColor = Color.Gray;
+                textBox2.UseSystemPasswordChar = false;
+            }
+            if (textBox2.Text == "" & idiomaIngles == false)
+            {
+                textBox2.Text = "Password";
                 textBox2.ForeColor = Color.Gray;
                 textBox2.UseSystemPasswordChar = false;
             }
@@ -135,19 +173,51 @@ namespace AppDelizia
             Application.Exit();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void english_CheckedChanged(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void español_CheckedChanged(object sender, EventArgs e)
-        {
+        //Evento para el idioma
 
+        private bool idiomaIngles = false; // false para español, true para inglés;
+
+        private void CambiarIdioma()
+        {
+            if (idiomaIngles)
+            {
+                // Cambiar a español
+                button1.Text = "Iniciar";
+                button2.Text = "Salir";
+                label1.Text = "Iniciar sesión";
+                textBox1.Text = "Usuario";
+                textBox2.Text = "Contraseña";
+            }
+            else
+            {
+                // Cambiar a inglés
+                button1.Text = "Login";
+                button2.Text = "Exit";
+                label1.Text = "Login";
+                textBox1.Text = "Username";
+                textBox2.Text = "Password";
+            }
+        }
+
+        //Fin evento Idioma
+
+        private void btnIdioma_Click(object sender, EventArgs e)
+        {
+            // Cambia el valor de la variable para alternar el idioma
+            idiomaIngles = !idiomaIngles;
+
+            // Cambiar los textos según el idioma seleccionado
+            CambiarIdioma();
         }
     }
 }
