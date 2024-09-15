@@ -45,9 +45,9 @@
             this.button1.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(553, 358);
+            this.button1.Location = new System.Drawing.Point(541, 358);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 35);
+            this.button1.Size = new System.Drawing.Size(96, 35);
             this.button1.TabIndex = 0;
             this.button1.Text = "Iniciar";
             this.button1.UseVisualStyleBackColor = false;
@@ -58,9 +58,9 @@
             this.button2.BackColor = System.Drawing.Color.Firebrick;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(646, 358);
+            this.button2.Location = new System.Drawing.Point(652, 358);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 35);
+            this.button2.Size = new System.Drawing.Size(96, 35);
             this.button2.TabIndex = 1;
             this.button2.Text = "Salir";
             this.button2.UseVisualStyleBackColor = false;

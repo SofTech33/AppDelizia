@@ -201,9 +201,9 @@ namespace AppDelizia
             else
             {
                 // Cambiar a inglés
-                button1.Text = "Login";
+                button1.Text = "Sign in";
                 button2.Text = "Exit";
-                label1.Text = "Login";
+                label1.Text = "Sign in";
                 textBox1.Text = "Username";
                 textBox2.Text = "Password";
             }
