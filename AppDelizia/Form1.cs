@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModeloUsuario;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,37 @@ namespace AppDelizia
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Crear una instancia de la clase Usuario
+            Usuario usuario = new Usuario(textBox1.Text, textBox2.Text, 0);
 
+            // Verificar credenciales
+            if (usuario.VerificarUsuario(textBox1.Text, textBox2.Text))
+            {
+                MessageBox.Show("Login correcto");
+
+                // Crear una nueva instancia del formulario
+                Form2 adminForm = new Form2();
+
+                //Ocultar Form1
+                this.Hide();
+
+                // Mostrar el formulario
+                adminForm.Show();
+
+                // Manejar el evento de cierre de Form2 para volver a mostrar Form1 si es necesario
+                adminForm.FormClosed += (s, args) => this.Show();
+
+                // Limpiar los campos de texto después del login correcto
+                textBox1.Text = "";
+                textBox2.Text = "";
+                // Asegúrate de reactivar el carácter de contraseña
+                textBox2.UseSystemPasswordChar = true;
+
+            }
+            else
+            {
+                MessageBox.Show("Login incorrecto");
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -102,6 +133,21 @@ namespace AppDelizia
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void english_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void español_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
