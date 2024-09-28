@@ -1,4 +1,5 @@
 ﻿using ModeloUsuario;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Windows.Forms;
 
 namespace AppDelizia
 {
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -52,6 +54,29 @@ namespace AppDelizia
             else
             {
                 MessageBox.Show("Login incorrecto");
+            }
+        }
+
+        // Prueba de conexión con la DB
+        public void TestDatabaseConnection()
+        {
+            string connectionString = "server=localhost;port=3306;database=delizia;user=root;password=";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MessageBox.Show("Conexión a la base de datos exitosa");
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error al conectar: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
         }
 
@@ -218,6 +243,16 @@ namespace AppDelizia
 
             // Cambiar los textos según el idioma seleccionado
             CambiarIdioma();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrueba_Click(object sender, EventArgs e)
+        {
+            TestDatabaseConnection();
         }
     }
 }
