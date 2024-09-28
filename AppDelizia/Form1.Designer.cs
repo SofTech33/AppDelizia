@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnIniciar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.textUsuario = new System.Windows.Forms.TextBox();
             this.textContraseña = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -38,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnIdioma = new System.Windows.Forms.Button();
             this.btnPrueba = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,20 +52,7 @@
             this.btnIniciar.TabIndex = 0;
             this.btnIniciar.Text = "Iniciar";
             this.btnIniciar.UseVisualStyleBackColor = false;
-            this.btnIniciar.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.BackColor = System.Drawing.Color.Firebrick;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(652, 358);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(96, 35);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.button2_Click);
+            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // textUsuario
             // 
@@ -75,7 +62,7 @@
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(228, 38);
             this.textUsuario.TabIndex = 2;
-            this.textUsuario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textUsuario.TextChanged += new System.EventHandler(this.textUsuario_TextChanged);
             this.textUsuario.Enter += new System.EventHandler(this.textBox1_Enter);
             this.textUsuario.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
@@ -88,7 +75,7 @@
             this.textContraseña.Size = new System.Drawing.Size(228, 38);
             this.textContraseña.TabIndex = 3;
             this.textContraseña.UseSystemPasswordChar = true;
-            this.textContraseña.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textContraseña.TextChanged += new System.EventHandler(this.textContraseña_TextChanged);
             this.textContraseña.Enter += new System.EventHandler(this.textBox2_Enter);
             this.textContraseña.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
@@ -153,6 +140,19 @@
             this.btnPrueba.UseVisualStyleBackColor = false;
             this.btnPrueba.Click += new System.EventHandler(this.btnPrueba_Click);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(652, 358);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(96, 35);
+            this.btnSalir.TabIndex = 1;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,7 +184,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.TextBox textUsuario;
         private System.Windows.Forms.TextBox textContraseña;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
@@ -193,6 +192,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnIdioma;
         private System.Windows.Forms.Button btnPrueba;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 

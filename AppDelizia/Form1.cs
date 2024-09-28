@@ -15,6 +15,7 @@ namespace AppDelizia
 
     public partial class Form1 : Form
     {
+        string connectionString = "Server=localhost;Database=delizia;Uid=root;Pwd=;";
         public Form1()
         {
             InitializeComponent();
@@ -22,40 +23,7 @@ namespace AppDelizia
             CambiarIdioma(); // Inicializa el idioma por defecto (español en este caso)
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Crear una instancia de la clase Usuario
-            Usuario usuario = new Usuario(textUsuario.Text, textContraseña.Text, 0);
-
-            // Verificar credenciales
-            if (usuario.VerificarUsuario(textUsuario.Text, textContraseña.Text))
-            {
-                MessageBox.Show("Login correcto");
-
-                // Crear una nueva instancia del formulario
-                Form2 adminForm = new Form2();
-
-                //Ocultar Form1
-                this.Hide();
-
-                // Mostrar el formulario
-                adminForm.Show();
-
-                // Manejar el evento de cierre de Form2 para volver a mostrar Form1 si es necesario
-                adminForm.FormClosed += (s, args) => this.Show();
-
-                // Limpiar los campos de texto después del login correcto
-                textUsuario.Text = "";
-                textContraseña.Text = "";
-                // Asegúrate de reactivar el carácter de contraseña
-                textContraseña.UseSystemPasswordChar = true;
-
-            }
-            else
-            {
-                MessageBox.Show("Login incorrecto");
-            }
-        }
+       
 
         // Prueba de conexión con la DB
         public void TestDatabaseConnection()
@@ -78,16 +46,6 @@ namespace AppDelizia
                     connection.Close();
                 }
             }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         // Establece los placeholders para ambos TextBox al cargar el formulario
@@ -193,11 +151,6 @@ namespace AppDelizia
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -253,6 +206,96 @@ namespace AppDelizia
         private void btnPrueba_Click(object sender, EventArgs e)
         {
             TestDatabaseConnection();
+        }
+
+        //Evento boton Iniciar
+        private void btnIniciar_Click(object sender, EventArgs e)
+        {
+            /* Para hacer pruebas sin DB
+            // Crear una instancia de la clase Usuario
+            Usuario usuario = new Usuario(textUsuario.Text, textContraseña.Text, 0);
+
+            // Verificar credenciales
+            if (usuario.VerificarUsuario(textUsuario.Text, textContraseña.Text))
+            {
+                MessageBox.Show("Login correcto");
+
+                // Crear una nueva instancia del formulario
+                Form2 adminForm = new Form2();
+
+                //Ocultar Form1
+                this.Hide();
+
+                // Mostrar el formulario
+                adminForm.Show();
+
+                // Manejar el evento de cierre de Form2 para volver a mostrar Form1 si es necesario
+                adminForm.FormClosed += (s, args) => this.Show();
+
+                // Limpiar los campos de texto después del login correcto
+                textUsuario.Text = "";
+                textContraseña.Text = "";
+                // Asegúrate de reactivar el carácter de contraseña
+                textContraseña.UseSystemPasswordChar = true;
+
+            }
+            else
+            {
+                MessageBox.Show("Login incorrecto");
+            }
+            Para hacer pruebas sin DB FIN*/
+
+            string usuario = textUsuario.Text;
+            string contrasena = textContraseña.Text;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT COUNT(*) FROM usuario WHERE nombre = @usuario AND clave = @contrasena";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    cmd.Parameters.AddWithValue("@contrasena", contrasena);
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (count > 0)
+                    {
+                        // Login exitoso
+                        MessageBox.Show("Inicio de sesión exitoso.");
+                        // Aquí puedes abrir otra forma o realizar otra acción
+                    }
+                    else
+                    {
+                        // Login fallido
+                        MessageBox.Show("Usuario o contraseña incorrectos.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+
+        }
+
+        //Evento boton Salir
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        //Evento campo de texto usuario
+        private void textUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Evento campo de texto contraseña
+        private void textContraseña_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
